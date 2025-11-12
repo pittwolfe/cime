@@ -1,4 +1,43 @@
 <?xml version="1.0"?>
 <gridmaps driver="nuopc">
-  <!-- no nuopc specific gridmaps -->
+ <gridmap atm_grid="0.9x1.25" ocn_grid="sx066av1">
+   <map name="ATM2OCN_FMAPNAME">$DIN_LOC_ROOT/share/maps/map_fv0.9x1.25_TO_sx0.66av1_aave.230330.nc</map>
+   <map name="ATM2OCN_SMAPNAME">$DIN_LOC_ROOT/share/maps/map_fv0.9x1.25_TO_sx0.66av1_blin.230330.nc</map>
+   <map name="ATM2OCN_VMAPNAME">$DIN_LOC_ROOT/share/maps/map_fv0.9x1.25_TO_sx0.66av1_blin.230330.nc</map>
+   <map name="OCN2ATM_FMAPNAME">$DIN_LOC_ROOT/share/maps/map_sx0.66av1_TO_fv0.9x1.25_aave.230330.nc</map>
+   <map name="OCN2ATM_SMAPNAME">$DIN_LOC_ROOT/share/maps/map_sx0.66av1_TO_fv0.9x1.25_aave.230330.nc</map>
+ </gridmap>
+ 
+<gridmap atm_grid="0.9x1.25" ocn_grid="sx066rv1">
+   <map name="ATM2OCN_FMAPNAME">$DIN_LOC_ROOT/share/maps/map_fv0.9x1.25_TO_sx0.66rv1_aave.230814.nc</map>
+   <map name="ATM2OCN_SMAPNAME">$DIN_LOC_ROOT/share/maps/map_fv0.9x1.25_TO_sx0.66rv1_blin.230814.nc</map>
+   <map name="ATM2OCN_VMAPNAME">$DIN_LOC_ROOT/share/maps/map_fv0.9x1.25_TO_sx0.66rv1_blin.230814.nc</map>
+   <map name="OCN2ATM_FMAPNAME">$DIN_LOC_ROOT/share/maps/map_sx0.66rv1_TO_fv0.9x1.25_aave.230814.nc</map>
+   <map name="OCN2ATM_SMAPNAME">$DIN_LOC_ROOT/share/maps/map_sx0.66rv1_TO_fv0.9x1.25_aave.230814.nc</map>
+ </gridmap>
+
+ <gridmap atm_grid="0.23x0.31" ocn_grid="sx066av1">
+   <map name="ATM2OCN_FMAPNAME">$DIN_LOC_ROOT/share/maps/map_fv0.23x0.31_TO_sx0.66av1_aave.250903.nc</map>
+   <map name="ATM2OCN_SMAPNAME">$DIN_LOC_ROOT/share/maps/map_fv0.23x0.31_TO_sx0.66av1_blin.250903.nc</map>
+   <map name="ATM2OCN_VMAPNAME">$DIN_LOC_ROOT/share/maps/map_fv0.23x0.31_TO_sx0.66av1_blin.250903.nc</map>
+   <map name="OCN2ATM_FMAPNAME">$DIN_LOC_ROOT/share/maps/map_sx0.66av1_TO_fv0.23x0.31_aave.250903.nc</map>
+   <map name="OCN2ATM_SMAPNAME">$DIN_LOC_ROOT/share/maps/map_sx0.66av1_TO_fv0.23x0.31_aave.250903.nc</map>
+ </gridmap>
+
+ <gridmap atm_grid="0.23x0.31" lnd_grid="0.9x1.25">
+   <map name="ATM2LND_FMAPNAME">$DIN_LOC_ROOT/share/maps/map_fv0.23x0.31_TO_fv0.9x1.25_aave.250903.nc</map>
+   <map name="ATM2LND_SMAPNAME">$DIN_LOC_ROOT/share/maps/map_fv0.23x0.31_TO_fv0.9x1.25_blin.250903.nc</map>
+   <map name="LND2ATM_FMAPNAME">$DIN_LOC_ROOT/share/maps/map_fv0.9x1.25_TO_fv0.23x0.31_aave.250903.nc</map>
+   <map name="LND2ATM_SMAPNAME">$DIN_LOC_ROOT/share/maps/map_fv0.9x1.25_TO_fv0.23x0.31_aave.250903.nc</map>
+ </gridmap>
+
+ <gridmap atm_grid="0.23x0.31" ocn_grid="sx066rv1">
+   <map name="ATM2OCN_FMAPNAME">$DIN_LOC_ROOT/share/mapsmap_fv0.23x0.31_TO_sx0.66rv1_aave.250904.nc</map>
+   <map name="ATM2OCN_SMAPNAME">$DIN_LOC_ROOT/share/mapsmap_fv0.23x0.31_TO_sx0.66rv1_blin.250904.nc</map>
+   <map name="ATM2OCN_VMAPNAME">$DIN_LOC_ROOT/share/mapsmap_fv0.23x0.31_TO_sx0.66rv1_blin.250904.nc</map>
+   <map name="OCN2ATM_FMAPNAME">$DIN_LOC_ROOT/share/mapsmap_sx0.66rv1_TO_fv0.23x0.31_aave.250904.nc</map>
+   <map name="OCN2ATM_SMAPNAME">$DIN_LOC_ROOT/share/mapsmap_sx0.66rv1_TO_fv0.23x0.31_aave.250904.nc</map>
+ </gridmap>
+
+
 </gridmaps>

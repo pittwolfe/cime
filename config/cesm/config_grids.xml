@@ -567,6 +567,1861 @@
       <mask>gx1v7</mask>
     </model_grid>
 
+Last login: Mon Nov 10 17:31:39 on ttys008
+ssh[talus ~]$ ssh work/
+ssh: Could not resolve hostname work/: nodename nor servname provided, or not known
+[talus ~]$ ls
+bin                               Movies
+Box                               Music
+data                              OneDrive
+Desktop                           OneDrive - Stony Brook University
+Documents                         Pictures
+Downloads                         project
+Google Drive                      Public
+homes                             src
+Library                           tmp
+macports_user_dir                 work
+[talus ~]$ cd work/
+[talus work]$ ls
+archer CESM   cime   esmf
+[talus work]$ cd CESM/
+[talus CESM]$ ls
+ccs_config         cime               describe_version   LICENSE.txt        tools
+ChangeLog          cime_config        doc                manage_externals
+ChangeLog_template CODE_OF_CONDUCT.md Externals.cfg      README.rst
+[talus CESM]$ ./describe_version 
+fatal: No names found, cannot describe anything.
+Traceback (most recent call last):
+  File "/Users/cwolfe/work/CESM/./describe_version", line 71, in <module>
+    main()
+  File "/Users/cwolfe/work/CESM/./describe_version", line 52, in main
+    git_describe = subprocess.check_output(['git', 'describe', '--long'],
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cwolfe/Library/miniforge3/envs/py312/lib/python3.12/subprocess.py", line 466, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/cwolfe/Library/miniforge3/envs/py312/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['git', 'describe', '--long']' returned non-zero exit status 128.
+[talus CESM]$ git status
+On branch cesm2_3_beta17_seawulf
+Your branch is up to date with 'origin/cesm2_3_beta17_seawulf'.
+
+nothing to commit, working tree clean
+[talus CESM]$ git describe --long
+fatal: No names found, cannot describe anything.
+[talus CESM]$ git tag
+[talus CESM]$ git tag -a cesm2_3_beta17_aqua -m "Version of CESM for Aqua"
+[talus CESM]$ git describe --long
+cesm2_3_beta17_aqua-0-g4c002da
+[talus CESM]$ git describe --long
+cesm2_3_beta17_aqua-0-g4c002da
+[talus CESM]$ ./describe_version 
+------------------------------------------------------------------------
+git describe:
+cesm2_3_beta17_aqua-0-g4c002da
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+git status:
+On branch cesm2_3_beta17_seawulf
+Your branch is up to date with 'origin/cesm2_3_beta17_seawulf'.
+
+nothing to commit, working tree clean
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+manage_externals status:
+Processing externals description file : Externals.cfg (/Users/cwolfe/work/CESM)
+Processing externals description file : .gitmodules (/Users/cwolfe/work/CESM/cime)
+Checking local status of required & optional components: ccs_config, cam, cice5, cice6, cmeps, cdeps, cpl7, share, slim, mct, parallelio, cime, cime/non_py/cprnc, cism, clm, fms, mizuroute, mom, mosart, pop, pycect, rtm, ww3, ww3dev, 
+sM  ./ccs_config
+        modified sandbox, 3ac27ff06439fa5e6e2a28d7f1d3e3210b0027ab (branch ccs_config_cesm0.0.16_archer) --> ccs_config_cesm0.0.106_seawulf
+            On branch ccs_config_cesm0.0.16_archer
+            Your branch is up to date with 'origin/ccs_config_cesm0.0.16_archer'.
+            
+            Changes not staged for commit:
+              (use "git add <file>..." to update what will be committed)
+              (use "git restore <file>..." to discard changes in working directory)
+            	modified:   machines/config_machines.xml
+            
+            no changes added to commit (use "git add" and/or "git commit -a")
+
+    ./cime
+        clean sandbox, on cime6.0.238_httpsbranch01
+            HEAD detached at cime6.0.238_httpsbranch01
+            nothing to commit, working tree clean
+
+    ./cime/CIME/non_py/cprnc
+        clean sandbox, on v1.0.6
+            HEAD detached at 9276b21
+            nothing to commit, working tree clean
+
+e-  ./components/cam
+        -, not checked out --> cam6_3_160
+
+e-  ./components/cdeps
+        -, not checked out --> cdeps1.0.33
+
+e-  ./components/cice
+        -, not checked out --> cesm_cice6_5_0_7
+
+e-  ./components/cice5
+        -, not checked out --> cice5_20220204
+
+e-  ./components/cism
+        -, not checked out --> cismwrap_2_1_100
+
+e-  ./components/clm
+        -, not checked out --> ctsm5.2.006
+
+e-  ./components/cmeps
+        -, not checked out --> cmeps0.14.60
+
+e-  ./components/cpl7
+        -, not checked out --> cpl77.0.8
+
+e-  ./components/mizuroute
+        -, not checked out --> cesm-coupling.n02_v2.1.2
+
+e-o ./components/mom
+        -, not checked out --> mi_240510
+
+e-  ./components/mosart
+        -, not checked out --> mosart1_0_49
+
+e-  ./components/pop
+        -, not checked out --> cesm_pop_2_1_20240202
+
+e-  ./components/rtm
+        -, not checked out --> rtm1_0_79
+
+e-  ./components/slim
+        -, not checked out --> slim0.4.002_cesm2_3_beta15
+
+e-  ./components/ww3
+        -, not checked out --> ww3_221108
+
+e-o ./components/ww3dev
+        -, not checked out --> main_0.0.13
+
+e-o ./libraries/FMS
+        -, not checked out --> fi_230818
+
+e-  ./libraries/mct
+        -, not checked out --> MCT_2.11.0
+
+e-  ./libraries/parallelio
+        -, not checked out --> pio2_6_7
+
+e-  ./share
+        -, not checked out --> share1.0.18
+
+e-o ./tools/statistical_ensemble_test/pyCECT
+        -, not checked out --> 3.2.2
+
+------------------------------------------------------------------------
+
+[talus CESM]$ git status
+On branch cesm2_3_beta17_seawulf
+Your branch is up to date with 'origin/cesm2_3_beta17_seawulf'.
+
+nothing to commit, working tree clean
+[talus CESM]$ git fetch
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 9 (delta 4), reused 9 (delta 4), pack-reused 0 (from 0)
+Unpacking objects: 100% (9/9), 2.13 KiB | 311.00 KiB/s, done.
+From github.com:pittwolfe/CESM
+   4c002da..2ad6dc7  cesm2_3_beta17_seawulf -> origin/cesm2_3_beta17_seawulf
+ * [new branch]      cesm2_3_beta08_archer  -> origin/cesm2_3_beta08_archer
+[talus CESM]$ git status
+On branch cesm2_3_beta17_seawulf
+Your branch is behind 'origin/cesm2_3_beta17_seawulf' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+[talus CESM]$ git pull
+Updating 4c002da..2ad6dc7
+Fast-forward
+ Externals.cfg | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+[talus CESM]$ cd ..
+[talus work]$ ls
+archer CESM   cime   esmf
+[talus work]$ mkdir aqua
+[talus work]$ cd aqua/
+[talus aqua]$ mkdir beta06
+[talus aqua]$ cd beta06/
+[talus beta06]$ ls
+[talus beta06]$ scp para:data/aqua/data/aqua_yr1000/input/* .
+atm_in                                                            100% 5490    31.2KB/s   00:00    
+drv_in                                                            100% 1012     5.8KB/s   00:00    
+ice_in                                                            100% 8381    47.6KB/s   00:00    
+lnd_in                                                            100% 7050    40.1KB/s   00:00    
+[talus beta06]$ ls
+atm_in      drv_flds_in drv_in      ice_in      lnd_in
+[talus beta06]$ scp para:data/aqua/data/aqua_yr1000/input/* .
+MOM_input                                                         100%   22KB  85.3KB/s   00:00    
+MOM_override                                                      100% 1681     9.5KB/s   00:00    
+MOM_parameter_doc.all                                             100%  126KB 367.2KB/s   00:00    
+MOM_parameter_doc.debugging                                       100% 4910    27.9KB/s   00:00    
+MOM_parameter_doc.layout                                          100% 4661    26.5KB/s   00:00    
+MOM_parameter_doc.short                                           100%   24KB 139.0KB/s   00:00    
+atm_in                                                            100% 5490    31.3KB/s   00:00    
+available_diags.000000                                            100%  123KB 448.5KB/s   00:00    
+drv_in                                                            100% 1012     5.8KB/s   00:00    
+ice_in                                                            100% 8381    47.6KB/s   00:00    
+lnd_in                                                            100% 7050    40.2KB/s   00:00    
+[talus beta06]$ cd ..
+[talus aqua]$ ls
+beta06
+[talus aqua]$ mkdir beta17
+[talus aqua]$ cd beta17/
+[talus beta17]$ scp /home/n01/n01/cwolfe/aqua/cesm/exp/runs/b.e23.BMOM.f09_sx0.66av1.aqua.yr1050_branch/run/*_in .
+cp: /home/n01/n01/cwolfe/aqua/cesm/exp/runs/b.e23.BMOM.f09_sx0.66av1.aqua.yr1050_branch/run/*_in: No such file or directory
+[talus beta17]$ scp archer:/home/n01/n01/cwolfe/aqua/cesm/exp/runs/b.e23.BMOM.f09_sx0.66av1.aqua.yr1050_branch/run/*_in .
+atm_in                                                            100% 6125   140.4KB/s   00:00    
+drv_flds_in                                                       100%  249     7.4KB/s   00:00    
+drv_in                                                            100%  552    21.6KB/s   00:00    
+ice_in                                                            100% 8304    45.2KB/s   00:00    
+lnd_in                                                            100% 7712   278.2KB/s   00:00    
+[talus beta17]$ scp archer:/home/n01/n01/cwolfe/aqua/cesm/exp/runs/b.e23.BMOM.f09_sx0.66av1.aqua.yr1050_branch/run/MOM_ .
+^C[talus beta17]$ scp archer:/home/n01/n01/cwolfe/aqua/cesm/exp/runs/b.e23.BMOM.f09_sx0.66av1.aqua.yr1050_branch/run/MOM_* .
+MOM_input                                                         100%   25KB 678.8KB/s   00:00    
+MOM_override                                                      100% 1788     7.6KB/s   00:00    
+MOM_parameter_doc.all                                             100%  139KB   1.6MB/s   00:00    
+MOM_parameter_doc.debugging                                       100% 5580   158.2KB/s   00:00    
+MOM_parameter_doc.layout                                          100% 4823   189.8KB/s   00:00    
+MOM_parameter_doc.short                                           100%   26KB   1.1MB/s   00:00    
+[talus beta17]$ scp archer:/home/n01/n01/cwolfe/aqua/cesm/exp/runs/b.e23.BMOM.f09_sx0.66av1.aqua.yr1050_branch/run/available_diags.000000 .
+available_diags.000000                                            100%  138KB 914.5KB/s   00:00    
+[talus beta17]$ open .
+[talus beta17]$ git status
+fatal: not a git repository (or any of the parent directories): .git
+[talus beta17]$ cd ..
+[talus aqua]$ ls
+beta06 beta17
+[talus aqua]$ cd ..
+[talus work]$ ls
+aqua   archer CESM   cime   esmf
+[talus work]$ mv CESM2.3.beta17
+usage: mv [-f | -i | -n] [-hv] source target
+       mv [-f | -i | -n] [-v] source ... directory
+[talus work]$ mv CESM CESM2.3.beta17
+[talus work]$ cd CESM2.3.beta17/
+[talus CESM2.3.beta17]$ ls
+ccs_config         cime               describe_version   LICENSE.txt        tools
+ChangeLog          cime_config        doc                manage_externals
+ChangeLog_template CODE_OF_CONDUCT.md Externals.cfg      README.rst
+[talus CESM2.3.beta17]$ ./manage_externals/checkout_externals 
+Processing externals description file : Externals.cfg (/Users/cwolfe/work/CESM2.3.beta17)
+Processing externals description file : .gitmodules (/Users/cwolfe/work/CESM2.3.beta17/cime)
+Checking local status of required & optional components: ccs_config, cam, cice5, cice6, cmeps, cdeps, cpl7, share, slim, mct, parallelio, cime, cime/non_py/cprnc, cism, clm, fms, mizuroute, mom, mosart, pop, pycect, rtm, ww3, ww3dev, 
+sM  ./ccs_config
+    ./cime
+    ./cime/CIME/non_py/cprnc
+e-  ./components/cam
+e-  ./components/cdeps
+e-  ./components/cice
+e-  ./components/cice5
+e-  ./components/cism
+e-  ./components/clm
+e-  ./components/cmeps
+e-  ./components/cpl7
+e-  ./components/mizuroute
+e-o ./components/mom
+e-  ./components/mosart
+e-  ./components/pop
+e-  ./components/rtm
+e-  ./components/slim
+e-  ./components/ww3
+e-o ./components/ww3dev
+e-o ./libraries/FMS
+e-  ./libraries/mct
+e-  ./libraries/parallelio
+e-  ./share
+e-o ./tools/statistical_ensemble_test/pyCECT
+----------------------------------------------------------------------
+The external repositories labeled with 'M' above are not in a clean state.
+The following are four options for how to proceed:
+(1) Go into each external that is not in a clean state and issue either a 'git status' or
+    an 'svn status' command (depending on whether the external is managed by git or
+    svn). Either revert or commit your changes so that all externals are in a clean
+    state. (To revert changes in git, follow the instructions given when you run 'git
+    status'.) (Note, though, that it is okay to have untracked files in your working
+    directory.) Then rerun checkout_externals.
+(2) Alternatively, you do not have to rely on checkout_externals. Instead, you can manually
+    update out-of-sync externals (labeled with 's' above) as described in the
+    configuration file Externals.cfg. (For example, run 'git fetch' and 'git checkout'
+    commands to checkout the appropriate tags for each external, as given in
+    Externals.cfg.)
+(3) You can also use checkout_externals to manage most, but not all externals: You can specify
+    one or more externals to ignore using the '-x' or '--exclude' argument to
+    checkout_externals. Excluding externals labeled with 'M' will allow checkout_externals to
+    update the other, non-excluded externals.
+(4) As a last resort, if you are confident that there is no work that needs to be saved
+    from a given external, you can remove that external (via "rm -rf [directory]") and
+    then rerun the checkout_externals tool. This option is mainly useful as a workaround for
+    issues with this tool (such as https://github.com/ESMCI/manage_externals/issues/157).
+The external repositories labeled with '?' above are not under version
+control using the expected protocol. If you are sure you want to switch
+protocols, and you don't have any work you need to save from this
+directory, then run "rm -rf [directory]" before rerunning the
+checkout_externals tool.
+
+----------------------------------------------------------------------
+[talus CESM2.3.beta17]$ ls
+ccs_config         cime               describe_version   LICENSE.txt        tools
+ChangeLog          cime_config        doc                manage_externals
+ChangeLog_template CODE_OF_CONDUCT.md Externals.cfg      README.rst
+[talus CESM2.3.beta17]$ rm -r ccs_config/
+override r--r--r-- cwolfe/staff for ccs_config/.git/objects/69/772e62a12c5b779954d82820c4c77ba5d73a23? ^C
+[talus CESM2.3.beta17]$ rm -fr ccs_config/
+[talus CESM2.3.beta17]$ ./manage_externals/checkout_externals 
+Processing externals description file : Externals.cfg (/Users/cwolfe/work/CESM2.3.beta17)
+Processing externals description file : .gitmodules (/Users/cwolfe/work/CESM2.3.beta17/cime)
+Checking local status of required & optional components: ccs_config, cam, cice5, cice6, cmeps, cdeps, cpl7, share, slim, mct, parallelio, cime, cime/non_py/cprnc, cism, clm, fms, mizuroute, mom, mosart, pop, pycect, rtm, ww3, ww3dev, 
+Checking out externals: ccs_config, cime, Processing externals description file : .gitmodules (/Users/cwolfe/work/CESM2.3.beta17/cime)
+Checking out externals: cime/non_py/cprnc, 
+cam, Processing externals description file : Externals_CAM.cfg (/Users/cwolfe/work/CESM2.3.beta17/components/cam)
+Checking out externals: chem_proc, atmos_phys, geoschem, fv3, Processing externals description file : Externals_FV3.cfg (/Users/cwolfe/work/CESM2.3.beta17/components/cam/src/dynamics/fv3)
+Checking out externals: atmos_cubed_sphere, 
+mpas, hemco, Processing externals description file : Externals_HCO.cfg (/Users/cwolfe/work/CESM2.3.beta17/components/cam/src/hemco)
+Checking out externals: hemco_src, Processing externals description file : .gitmodules (/Users/cwolfe/work/CESM2.3.beta17/components/cam/src/hemco/HEMCO)
+Checking out externals: docs/source/geos-chem-shared-docs, 
+
+ali_arms, carma, clubb, cosp2, pumas, pumas-frozen, rrtmgp-data, rte-rrtmgp, 
+cdeps, Processing externals description file : Externals_CDEPS.cfg (/Users/cwolfe/work/CESM2.3.beta17/components/cdeps)
+Checking out externals: fox, genf90, 
+cice6, Processing externals description file : Externals.cfg (/Users/cwolfe/work/CESM2.3.beta17/components/cice)
+Checking out externals: cice, Processing externals description file : .gitmodules (/Users/cwolfe/work/CESM2.3.beta17/components/cice/src)
+Checking out externals: icepack, 
+
+cice5, cism, Processing externals description file : Externals_CISM.cfg (/Users/cwolfe/work/CESM2.3.beta17/components/cism)
+Checking out externals: source_cism, 
+clm, Processing externals description file : Externals_CLM.cfg (/Users/cwolfe/work/CESM2.3.beta17/components/clm)
+Checking out externals: fates, 
+cmeps, cpl7, mizuroute, mosart, pop, Processing externals description file : Externals_POP.cfg (/Users/cwolfe/work/CESM2.3.beta17/components/pop)
+Checking out externals: cvmix, marbl, 
+rtm, slim, ww3, mct, parallelio, share, 
+
+[talus CESM2.3.beta17]$ ls
+ccs_config         cime_config        doc                manage_externals
+ChangeLog          CODE_OF_CONDUCT.md Externals.cfg      README.rst
+ChangeLog_template components         libraries          share
+cime               describe_version   LICENSE.txt        tools
+[talus CESM2.3.beta17]$ cd components/
+[talus components]$ ls
+cam       cice      cism      cmeps     mizuroute pop       slim
+cdeps     cice5     clm       cpl7      mosart    rtm       ww3
+[talus components]$ cd cam
+[talus cam]$ ls
+bld                CODE_OF_CONDUCT.md Externals.cfg      README.md          tools
+chem_proc          doc                LICENSE            src
+cime_config        Externals_CAM.cfg  manage_externals   test
+[talus cam]$ cd cime_config/
+[talus cime_config]$ ls
+buildcpp             config_archive.xml   config_tests.xml     usermods_dirs
+buildlib             config_component.xml SystemTests
+buildnml             config_compsets.xml  testdefs
+cam.case_setup.py    config_pes.xml       user_nl_cam
+[talus cime_config]$ grep drydep *.xml
+[talus cime_config]$ grep -i drydep *.xml
+[talus cime_config]$ grep -i ndep *.xml
+config_component.xml:    NDEP Forcing from Streams
+config_component.xml:  <entry id="CAM_STREAM_NDEP_YEAR_FIRST">
+config_component.xml:  <entry id="CAM_STREAM_NDEP_YEAR_LAST">
+config_component.xml:  <entry id="CAM_STREAM_NDEP_YEAR_ALIGN">
+config_component.xml:    <desc>Nitrogen deposition align CAM_STREAM_NDEP_YEAR_FIRST with this model year</desc>
+config_component.xml:  <entry id="CAM_STREAM_NDEP_DATA_FILENAME">
+config_component.xml:      <value compset="^SSP585_">$DIN_LOC_ROOT/lnd/clm2/ndepdata/fndep_clm_f09_g17.CMIP6-SSP5-8.5-WACCM_1849-2101_monthly_c191007.nc</value>
+config_component.xml:      <value compset="^SSP126_">$DIN_LOC_ROOT/lnd/clm2/ndepdata/fndep_clm_f09_g17.CMIP6-SSP1-2.6-WACCM_1849-2101_monthly_c191007.nc</value>
+config_component.xml:      <value compset="^SSP245_">$DIN_LOC_ROOT/lnd/clm2/ndepdata/fndep_clm_f09_g17.CMIP6-SSP2-4.5-WACCM_1849-2101_monthly_c191007.nc</value>
+config_component.xml:      <value compset="^SSP370_">$DIN_LOC_ROOT/lnd/clm2/ndepdata/fndep_clm_SSP370_b.e21.BWSSP370cmip6.f09_g17.CMIP6-SSP3-7.0-WACCM.002_1849-2101_monthly_0.9x1.25_c211216.nc</value>
+config_component.xml:      <value compset="^HIST_"  >$DIN_LOC_ROOT/lnd/clm2/ndepdata/fndep_clm_hist_b.e21.BWHIST.f09_g17.CMIP6-historical-WACCM.ensmean_1849-2015_monthly_0.9x1.25_c180926.nc</value>
+config_component.xml:      <value compset="^2000_"  >$DIN_LOC_ROOT/lnd/clm2/ndepdata/fndep_clm_hist_b.e21.BWHIST.f09_g17.CMIP6-historical-WACCM.ensmean_1849-2015_monthly_0.9x1.25_c180926.nc</value>
+config_component.xml:      <value compset="^2010_"  >$DIN_LOC_ROOT/lnd/clm2/ndepdata/fndep_clm_hist_b.e21.BWHIST.f09_g17.CMIP6-historical-WACCM.ensmean_1849-2015_monthly_0.9x1.25_c180926.nc</value>
+config_component.xml:      <value compset="^1850_"  >$DIN_LOC_ROOT/lnd/clm2/ndepdata/fndep_clm_WACCM6_CMIP6piControl001_y21-50avg_1850monthly_0.95x1.25_c180802.nc</value>
+config_component.xml:  <entry id="CAM_STREAM_NDEP_MESH_FILENAME">
+config_component.xml:    <desc>Nitrogen deposition mesh filename (corresponding to the CAM_STREAM_NDEP_DATA_FILENAME)</desc>
+[talus cime_config]$ bbedit config_component.xml 
+[talus cime_config]$ open .
+[talus cime_config]$ cd ..
+[talus cam]$ ls
+bld                CODE_OF_CONDUCT.md Externals.cfg      README.md          tools
+chem_proc          doc                LICENSE            src
+cime_config        Externals_CAM.cfg  manage_externals   test
+[talus cam]$ cd ..
+[talus components]$ cd ..
+[talus CESM2.3.beta17]$ ls
+ccs_config         cime_config        doc                manage_externals
+ChangeLog          CODE_OF_CONDUCT.md Externals.cfg      README.rst
+ChangeLog_template components         libraries          share
+cime               describe_version   LICENSE.txt        tools
+[talus CESM2.3.beta17]$ cd ..
+[talus work]$ ls
+aqua           archer         CESM2.3.beta06 CESM2.3.beta17 cime           esmf
+[talus work]$ cd -
+/Users/cwolfe/work/CESM2.3.beta17
+[talus CESM2.3.beta17]$ ls
+ccs_config         cime_config        doc                manage_externals
+ChangeLog          CODE_OF_CONDUCT.md Externals.cfg      README.rst
+ChangeLog_template components         libraries          share
+cime               describe_version   LICENSE.txt        tools
+[talus CESM2.3.beta17]$ cd ..
+[talus work]$ ls
+aqua           archer         CESM2.3.beta06 CESM2.3.beta17 cime           esmf
+[talus work]$ cd a
+-bash: cd: a: No such file or directory
+[talus work]$ cd aqua/
+[talus aqua]$ ls
+beta06 beta17
+[talus aqua]$ cd beta17/
+[talus beta17]$ ls
+atm_in                      ice_in                      MOM_parameter_doc.all
+available_diags.000000      lnd_in                      MOM_parameter_doc.debugging
+drv_flds_in                 MOM_input                   MOM_parameter_doc.layout
+drv_in                      MOM_override                MOM_parameter_doc.short
+[talus beta17]$ less MOM_parameter_doc.all 
+[talus beta17]$ cd ../beta06/
+[talus beta06]$ ls
+atm_in                      drv_in                      MOM_input                   MOM_parameter_doc.debugging
+available_diags.000000      ice_in                      MOM_override                MOM_parameter_doc.layout
+drv_flds_in                 lnd_in                      MOM_parameter_doc.all       MOM_parameter_doc.short
+[talus beta06]$ less MOM_override 
+[talus beta06]$ ^Cp id_ed25519* derecho:.ssh
+[talus beta06]$ scp derecho://glade/derecho/scratch/youweima/b.e23.BMOM.f09_sx0.66av1.aqua.yr1000_branch_melt_monthly/run/*_in .
+Access to and use of this UCAR computer system is limited to authorized use by
+UCAR Policies 1-7 and 3-6 and all applicable federal laws, executive orders, 
+policies and directives. UCAR computer systems are subject to monitoring at all
+times to ensure proper functioning of equipment and systems including security 
+devices, to prevent unauthorized use and violations of statutes and security 
+regulations, to deter criminal activity, and for other similar purposes. 
+
+Users should be aware that information placed in the system is subject to 
+monitoring and is not subject to any expectation of privacy. Unauthorized use 
+or abuse will be dealt with according to UCAR Policy, up to and including 
+criminal or civil penalties as warranted.
+
+By logging in, you are agreeing to these terms.
+
+(coas4@derecho.hpc.ucar.edu) ncar-two-factor: 
+atm_in                                                                                                         100% 5490    19.5KB/s   00:00    
+drv_in                                                                                                         100% 1012     3.7KB/s   00:00    
+ice_in                                                                                                         100% 8381    31.1KB/s   00:00    
+lnd_in                                                                                                         100% 7050    25.9KB/s   00:00    
+[talus beta06]$ ls -l
+total 712
+-rw-r--r--  1 cwolfe  staff    5490 Nov 11 14:57 atm_in
+-rw-r--r--  1 cwolfe  staff  125510 Nov 11 12:20 available_diags.000000
+-rw-r--r--  1 cwolfe  staff       0 Nov 11 14:57 drv_flds_in
+-rw-r--r--  1 cwolfe  staff    1012 Nov 11 14:57 drv_in
+-rw-r--r--  1 cwolfe  staff    8381 Nov 11 14:57 ice_in
+-rw-r--r--  1 cwolfe  staff    7050 Nov 11 14:57 lnd_in
+-rw-r-----  1 cwolfe  staff   22526 Nov 11 12:20 MOM_input
+-rw-r-----  1 cwolfe  staff    1681 Nov 11 12:20 MOM_override
+-rw-r-----  1 cwolfe  staff  128989 Nov 11 12:20 MOM_parameter_doc.all
+-rw-r-----  1 cwolfe  staff    4910 Nov 11 12:20 MOM_parameter_doc.debugging
+-rw-r-----  1 cwolfe  staff    4661 Nov 11 12:20 MOM_parameter_doc.layout
+-rw-r-----  1 cwolfe  staff   24595 Nov 11 12:20 MOM_parameter_doc.short
+[talus beta06]$ scp derecho://glade/derecho/scratch/youweima/b.e23.BMOM.f09_sx0.66av1.aqua.yr1000_branch_melt_monthly/run/MOM_
+usage: scp [-346ABCOpqRrsTv] [-c cipher] [-D sftp_server_path] [-F ssh_config]
+           [-i identity_file] [-J destination] [-l limit] [-o ssh_option]
+           [-P port] [-S program] [-X sftp_option] source ... target
+[talus beta06]$ scp derecho://glade/derecho/scratch/youweima/b.e23.BMOM.f09_sx0.66av1.aqua.yr1000_branch_melt_monthly/run/MOM_*
+usage: scp [-346ABCOpqRrsTv] [-c cipher] [-D sftp_server_path] [-F ssh_config]
+           [-i identity_file] [-J destination] [-l limit] [-o ssh_option]
+           [-P port] [-S program] [-X sftp_option] source ... target
+[talus beta06]$ scp derecho://glade/derecho/scratch/youweima/b.e23.BMOM.f09_sx0.66av1.aqua.yr1000_branch_melt_monthly/run/MOM_* .
+Access to and use of this UCAR computer system is limited to authorized use by
+UCAR Policies 1-7 and 3-6 and all applicable federal laws, executive orders, 
+policies and directives. UCAR computer systems are subject to monitoring at all
+times to ensure proper functioning of equipment and systems including security 
+devices, to prevent unauthorized use and violations of statutes and security 
+regulations, to deter criminal activity, and for other similar purposes. 
+
+Users should be aware that information placed in the system is subject to 
+monitoring and is not subject to any expectation of privacy. Unauthorized use 
+or abuse will be dealt with according to UCAR Policy, up to and including 
+criminal or civil penalties as warranted.
+
+By logging in, you are agreeing to these terms.
+
+(coas4@derecho.hpc.ucar.edu) ncar-two-factor: 
+(coas4@derecho.hpc.ucar.edu) ncar-two-factor: 
+MOM_input                                                                                                      100%   22KB  57.1KB/s   00:00    
+MOM_override                                                                                                   100% 1734     6.4KB/s   00:00    
+[talus beta06]$ scp derecho:/glade/derecho/scratch/youweima/b.e23.BMOM.f09_sx0.66av1.aqua.yr1070_branch_1pctCO2/run/MOM_parameter* .
+Access to and use of this UCAR computer system is limited to authorized use by
+UCAR Policies 1-7 and 3-6 and all applicable federal laws, executive orders, 
+policies and directives. UCAR computer systems are subject to monitoring at all
+times to ensure proper functioning of equipment and systems including security 
+devices, to prevent unauthorized use and violations of statutes and security 
+regulations, to deter criminal activity, and for other similar purposes. 
+
+Users should be aware that information placed in the system is subject to 
+monitoring and is not subject to any expectation of privacy. Unauthorized use 
+or abuse will be dealt with according to UCAR Policy, up to and including 
+criminal or civil penalties as warranted.
+
+By logging in, you are agreeing to these terms.
+
+(coas4@derecho.hpc.ucar.edu) ncar-two-factor: 
+MOM_parameter_doc.all                                                                                          100%  125KB 236.9KB/s   00:00    
+MOM_parameter_doc.debugging                                                                                    100% 4910    17.4KB/s   00:00    
+MOM_parameter_doc.layout                                                                                       100% 4661    17.3KB/s   00:00    
+MOM_parameter_doc.short                                                                                        100%   23KB  87.4KB/s   00:00    
+[talus beta06]$ scp derecho:/glade/derecho/scratch/youweima/b.e23.BMOM.f09_sx0.66av1.aqua.yr1000_branch_1pctCO2/run/MOM_parameter* .
+Access to and use of this UCAR computer system is limited to authorized use by
+UCAR Policies 1-7 and 3-6 and all applicable federal laws, executive orders, 
+policies and directives. UCAR computer systems are subject to monitoring at all
+times to ensure proper functioning of equipment and systems including security 
+devices, to prevent unauthorized use and violations of statutes and security 
+regulations, to deter criminal activity, and for other similar purposes. 
+
+Users should be aware that information placed in the system is subject to 
+monitoring and is not subject to any expectation of privacy. Unauthorized use 
+or abuse will be dealt with according to UCAR Policy, up to and including 
+criminal or civil penalties as warranted.
+
+By logging in, you are agreeing to these terms.
+
+(coas4@derecho.hpc.ucar.edu) ncar-two-factor: 
+MOM_parameter_doc.all                                                                                          100%  126KB 239.7KB/s   00:00    
+MOM_parameter_doc.debugging                                                                                    100% 4910    18.2KB/s   00:00    
+MOM_parameter_doc.layout                                                                                       100% 4661    16.4KB/s   00:00    
+MOM_parameter_doc.short                                                                                        100%   24KB  91.0KB/s   00:00    
+[talus beta06]$ cd ../beta17/
+[talus beta17]$ grep REMAPPING_SCHEME MOM_input
+REMAPPING_SCHEME = PPM_CW
+[talus beta17]$ grep INTERNAL_WAVE_SPEED_BETTER_EST MOM_input
+[talus beta17]$ grep KD_MIN MOM_input
+KD_MIN = 2e-06
+[talus beta17]$ grep KDML MOM_input
+KDML = 0.0
+                                ! If BULKMIXEDLAYER is false, KDML is the elevated diapycnal diffusivity in the
+                                ! topmost HMIX of fluid. KDML is only used if BULKMIXEDLAYER is false."
+[talus beta17]$ grep USE_POROUS_BARRIER MOM_input
+[talus beta17]$ 
+[talus beta17]$ cd ..
+[talus aqua]$ cd ..
+[talus work]$ ls
+aqua           archer         CESM2.3.beta06 CESM2.3.beta17 cime           esmf
+[talus work]$ cd CESM2.3.beta17/
+[talus CESM2.3.beta17]$ ls
+ccs_config         cime               components         Externals.cfg      manage_externals   tools
+ChangeLog          cime_config        describe_version   libraries          README.rst
+ChangeLog_template CODE_OF_CONDUCT.md doc                LICENSE.txt        share
+[talus CESM2.3.beta17]$ cd cime
+[talus cime]$ cd cime^C
+[talus cime]$ cd ../cime_config/
+[talus cime_config]$ ls
+config_compsets.xml    config_pes.xml         README.md              testlist_allactive.xml testmods_dirs          usermods_dirs
+[talus cime_config]$ cd ..
+[talus CESM2.3.beta17]$ cd b
+-bash: cd: b: No such file or directory
+[talus CESM2.3.beta17]$ ls
+ccs_config         cime               components         Externals.cfg      manage_externals   tools
+ChangeLog          cime_config        describe_version   libraries          README.rst
+ChangeLog_template CODE_OF_CONDUCT.md doc                LICENSE.txt        share
+[talus CESM2.3.beta17]$ cd ..
+[talus work]$ ls
+aqua           archer         CESM2.3.beta06 CESM2.3.beta17 cime           esmf
+[talus work]$ cd -
+/Users/cwolfe/work/CESM2.3.beta17
+[talus CESM2.3.beta17]$ cd components/
+[talus components]$ ls
+cam       cdeps     cice      cice5     cism      clm       cmeps     cpl7      mizuroute mosart    pop       rtm       slim      ww3
+[talus components]$ cd clm
+[talus clm]$ ls
+bld                       Externals_CLM.cfg         parse_cime.cs.status      README.CHECKLIST.new_case tools
+cime_config               Externals.cfg             py_env_create             README.md
+CODE_OF_CONDUCT.md        LICENSE                   python                    README.NUOPC_driver.md
+CONTRIBUTING.md           lilac                     README                    run_sys_tests
+doc                       manage_externals          README_EXTERNALS.rst      src
+[talus clm]$ cd bld/
+[talus bld]$ ls
+build-namelist      CLMBuildNamelist.pm config_files        env_run.xml         namelist_files      README              unit_testers
+[talus bld]$ cd namelist_files/
+[talus namelist_files]$ open .
+[talus namelist_files]$ bbedit namelist_definition.xsl 
+[talus namelist_files]$ grep -i urban_hac *
+namelist_defaults_ctsm.xml:<urban_hac               >ON_WASTEHEAT</urban_hac>
+namelist_defaults_ctsm.xml:<urban_hac phys="clm4_5" >ON</urban_hac>
+namelist_definition_ctsm.xml:<entry id="urban_hac" type="char*16" category="clm_physics"
+grep: use_cases: Is a directory
+[talus namelist_files]$ bbedit namelist_defaults_ctsm.xml 
+[talus namelist_files]$ cd ..
+[talus bld]$ ls
+build-namelist      CLMBuildNamelist.pm config_files        env_run.xml         namelist_files      README              unit_testers
+[talus bld]$ cd ..
+[talus clm]$ ls
+bld                       Externals_CLM.cfg         parse_cime.cs.status      README.CHECKLIST.new_case tools
+cime_config               Externals.cfg             py_env_create             README.md
+CODE_OF_CONDUCT.md        LICENSE                   python                    README.NUOPC_driver.md
+CONTRIBUTING.md           lilac                     README                    run_sys_tests
+doc                       manage_externals          README_EXTERNALS.rst      src
+[talus clm]$ cd src
+[talus src]$ ls
+biogeochem          CMakeLists.txt      dyn_subgrid         init_interp         README.unit_testing soilbiogeochem      unit_test_stubs
+biogeophys          cpl                 fates               main                self_tests          unit_test_shr       utils
+[talus src]$ cd biogeophys/
+[talus biogeophys]$ grep -i urban_hac *
+grep: test: Is a directory
+UrbanFluxesMod.F90:  use UrbanParamsType      , only : urban_wasteheat_on, urban_hac_on, urban_hac
+UrbanFluxesMod.F90:          if (trim(urban_hac) == urban_wasteheat_on) then
+UrbanFluxesMod.F90:          if (trim(urban_hac) == urban_hac_on .or. trim(urban_hac) == urban_wasteheat_on) then
+UrbanFluxesMod.F90:    if (trim(urban_hac) == urban_wasteheat_on) then
+UrbanFluxesMod.F90:    if (trim(urban_hac) == urban_hac_on .or. trim(urban_hac) == urban_wasteheat_on) then
+UrbanParamsType.F90:  character(len= *), parameter, public :: urban_hac_off = 'OFF'                
+UrbanParamsType.F90:  character(len= *), parameter, public :: urban_hac_on =  'ON'                 
+UrbanParamsType.F90:  character(len= 16), public           :: urban_hac = urban_hac_off
+UrbanParamsType.F90:             if (urban_hac == urban_hac_off) then
+UrbanParamsType.F90:    namelist / clmu_inparm / urban_hac, urban_traffic, building_temp_method
+UrbanParamsType.F90:    call shr_mpi_bcast(urban_hac,             mpicom)
+UrbanParamsType.F90:       write(iulog,*) '   urban air conditioning/heating and wasteheat   = ', urban_hac
+UrbBuildTempOleson2015Mod.F90:    use UrbanParamsType , only : urban_hac, urban_hac_off, urban_hac_on, urban_wasteheat_on
+UrbBuildTempOleson2015Mod.F90:          if (trim(urban_hac) == urban_hac_on .or. trim(urban_hac) == urban_wasteheat_on) then
+[talus biogeophys]$ grep URBAN_AC *
+EnergyFluxType.F90:       call hist_addfld1d (fname='URBAN_AC', units='W/m^2',  &
+EnergyFluxType.F90:       call hist_addfld1d (fname='URBAN_AC', units='W/m^2',  &
+EnergyFluxType.F90:          call ncd_inqvdlen(ncid, 'URBAN_AC_L', 1, dimlen, err_code)
+EnergyFluxType.F90:          call restartvar(ncid=ncid, flag=flag, varname='URBAN_AC_L', xtype=ncd_double,  &
+EnergyFluxType.F90:        call restartvar(ncid=ncid, flag=flag, varname='URBAN_AC', xtype=ncd_double, &
+grep: test: Is a directory
+[talus biogeophys]$ bbedit EnergyFluxType.F90 
+[talus biogeophys]$ cd ../..
+[talus clm]$ ls
+bld                       Externals_CLM.cfg         parse_cime.cs.status      README.CHECKLIST.new_case tools
+cime_config               Externals.cfg             py_env_create             README.md
+CODE_OF_CONDUCT.md        LICENSE                   python                    README.NUOPC_driver.md
+CONTRIBUTING.md           lilac                     README                    run_sys_tests
+doc                       manage_externals          README_EXTERNALS.rst      src
+[talus clm]$ cd ..
+[talus components]$ cd ..
+[talus CESM2.3.beta17]$ cat Externals.cfg 
+[ccs_config]
+tag = ccs_config_cesm0.0.106_seawulf
+protocol = git
+repo_url = https://github.com/pittwolfe/ccs_config_cesm.git
+local_path = ccs_config
+required = True
+
+[cam]
+tag = cam6_3_160
+protocol = git
+repo_url = https://github.com/ESCOMP/CAM
+local_path = components/cam
+externals = Externals_CAM.cfg
+required = True
+
+[cice5]
+tag = cice5_cesm.2.3.beta17
+protocol = git
+repo_url = git@github.com:pittwolfe/CESM_CICE5.git
+local_path = components/cice5
+required = True
+
+[cice6]
+tag = cesm_cice6_5_0_7
+protocol = git
+repo_url = https://github.com/ESCOMP/CESM_CICE
+local_path = components/cice
+externals = Externals.cfg
+required = True
+
+[cmeps]
+tag = cmeps0.14.60
+protocol = git
+repo_url = https://github.com/ESCOMP/CMEPS.git
+local_path = components/cmeps
+required = True
+
+[cdeps]
+tag = cdeps1.0.33
+protocol = git
+repo_url = https://github.com/ESCOMP/CDEPS.git
+local_path = components/cdeps
+externals =  Externals_CDEPS.cfg
+required = True
+
+[cpl7]
+tag = cpl77.0.8
+protocol = git
+repo_url = https://github.com/ESCOMP/CESM_CPL7andDataComps
+local_path = components/cpl7
+required = True
+
+[share]
+tag = share1.0.18
+protocol = git
+repo_url = https://github.com/ESCOMP/CESM_share
+local_path = share
+required = True
+
+[SLIM]
+tag = slim0.4.002_cesm2_3_beta15
+protocol = git
+repo_url = https://github.com/ESCOMP/SimpleLand
+local_path = components/slim
+required = True
+
+[mct]
+tag = MCT_2.11.0
+protocol = git
+repo_url = https://github.com/MCSclimate/MCT
+local_path = libraries/mct
+required = True
+
+[parallelio]
+tag = pio2_6_7
+protocol = git
+repo_url = https://github.com/NCAR/ParallelIO
+local_path = libraries/parallelio
+required = True
+
+[cime]
+tag = cime6.0.238_httpsbranch01
+protocol = git
+repo_url = https://github.com/ESMCI/cime
+local_path = cime
+required = True
+
+[cism]
+tag = cismwrap_2_1_100
+protocol = git
+repo_url = https://github.com/ESCOMP/CISM-wrapper
+local_path = components/cism
+externals = Externals_CISM.cfg
+required = True
+
+[clm]
+protocol = git
+repo_url = https://github.com/ESCOMP/CTSM
+tag = ctsm5.2.006
+local_path = components/clm
+externals = Externals_CLM.cfg
+required = True
+
+[fms]
+tag = fi_230818
+protocol = git
+repo_url = https://github.com/ESCOMP/FMS_interface
+local_path = libraries/FMS
+externals = Externals_FMS.cfg
+required = False
+
+[mizuRoute]
+tag = cesm-coupling.n02_v2.1.2
+protocol = git
+repo_url = https://github.com/ESCOMP/mizuRoute
+local_path = components/mizuroute
+required = True
+
+[mom]
+tag = mi_240510
+protocol = git
+repo_url = https://github.com/ESCOMP/MOM_interface
+local_path = components/mom
+externals = Externals.cfg
+required = False
+
+[mosart]
+tag = mosart1_0_49
+protocol = git
+repo_url = https://github.com/ESCOMP/MOSART
+local_path = components/mosart
+required = True
+
+[pop]
+tag = cesm_pop_2_1_20240202
+protocol = git
+repo_url = https://github.com/ESCOMP/POP2-CESM
+local_path = components/pop
+externals = Externals_POP.cfg
+required = True
+
+[pycect]
+tag = 3.2.2
+protocol = git
+repo_url = https://github.com/NCAR/PyCECT
+local_path = tools/statistical_ensemble_test/pyCECT
+required = False
+
+[rtm]
+tag = rtm1_0_79 
+protocol = git
+repo_url = https://github.com/ESCOMP/RTM
+local_path = components/rtm
+required = True
+
+[ww3]
+tag = ww3_221108
+protocol = git
+repo_url = https://github.com/ESCOMP/WW3-CESM
+local_path = components/ww3
+required = True
+
+[ww3dev]
+tag = main_0.0.13
+protocol = git
+repo_url = https://github.com/ESCOMP/WW3_interface
+local_path = components/ww3dev
+externals = Externals.cfg
+required = False
+
+[externals_description]
+schema_version = 1.0.01
+[talus CESM2.3.beta17]$ cd ..
+[talus work]$ ls
+aqua           archer         CESM2.3.beta06 CESM2.3.beta17 cime           esmf
+[talus work]$ cd CESM2.3.beta06/
+[talus CESM2.3.beta06]$ ls
+ChangeLog          cime               CODE_OF_CONDUCT.md describe_version   Externals.cfg      LICENSE.txt        README.rst
+ChangeLog_template cime_config        components         doc                libraries          manage_externals   share
+[talus CESM2.3.beta06]$ less Externals.cfg 
+[talus CESM2.3.beta06]$ ls
+ChangeLog          cime               CODE_OF_CONDUCT.md describe_version   Externals.cfg      LICENSE.txt        README.rst
+ChangeLog_template cime_config        components         doc                libraries          manage_externals   share
+[talus CESM2.3.beta06]$ cd components/
+[talus components]$ ls
+cam    cdeps  cice   cice6  cism   clm    cmeps  cpl7   mom    mosart pop    rtm    ww3    ww3dev
+[talus components]$ cd cam/
+[talus cam]$ ls
+bld                cime_config        doc                Externals.cfg      manage_externals   README.md          test
+chem_proc          CODE_OF_CONDUCT.md Externals_CAM.cfg  LICENSE            README_EXTERNALS   src                tools
+[talus cam]$ git status
+HEAD detached at cam6_3_027
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cime_config/buildcpp
+	modified:   cime_config/buildlib
+	modified:   cime_config/buildnml
+	modified:   cime_config/config_pes.xml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	cime_config/buildnml_original
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[talus cam]$ ls
+bld                cime_config        doc                Externals.cfg      manage_externals   README.md          test
+chem_proc          CODE_OF_CONDUCT.md Externals_CAM.cfg  LICENSE            README_EXTERNALS   src                tools
+[talus cam]$ cd ..
+[talus components]$ ls
+cam    cdeps  cice   cice6  cism   clm    cmeps  cpl7   mom    mosart pop    rtm    ww3    ww3dev
+[talus components]$ cd cdeps/
+[talus cdeps]$ git status
+HEAD detached at cdeps0.12.26
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	cime_config/__pycache__/
+	datm/cime_config/__pycache__/
+	dice/cime_config/__pycache__/
+	docn/cime_config/__pycache__/
+	drof/cime_config/__pycache__/
+	fox/
+	share/genf90/
+
+nothing added to commit but untracked files present (use "git add" to track)
+[talus cdeps]$ cd ..
+[talus components]$ ls
+cam    cdeps  cice   cice6  cism   clm    cmeps  cpl7   mom    mosart pop    rtm    ww3    ww3dev
+[talus components]$ cd cice
+[talus cice]$ git status
+HEAD detached at cice5_20210802
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cime_config/buildnml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	cime_config/__pycache__/
+	cime_config/buildnml_original
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[talus cice]$ cd ..
+[talus components]$ ls
+cam    cdeps  cice   cice6  cism   clm    cmeps  cpl7   mom    mosart pop    rtm    ww3    ww3dev
+[talus components]$ cd ..
+[talus CESM2.3.beta06]$ ls
+ChangeLog          cime               CODE_OF_CONDUCT.md describe_version   Externals.cfg      LICENSE.txt        README.rst
+ChangeLog_template cime_config        components         doc                libraries          manage_externals   share
+[talus CESM2.3.beta06]$ cd components/
+[talus components]$ ls
+cam    cdeps  cice   cice6  cism   clm    cmeps  cpl7   mom    mosart pop    rtm    ww3    ww3dev
+[talus components]$ cd cam/
+[talus cam]$ ls
+bld                cime_config        doc                Externals.cfg      manage_externals   README.md          test
+chem_proc          CODE_OF_CONDUCT.md Externals_CAM.cfg  LICENSE            README_EXTERNALS   src                tools
+[talus cam]$ git status
+HEAD detached at cam6_3_027
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cime_config/buildcpp
+	modified:   cime_config/buildlib
+	modified:   cime_config/buildnml
+	modified:   cime_config/config_pes.xml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	cime_config/buildnml_original
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[talus cam]$ cd cime_config/
+[talus cime_config]$ git diff cime_config/buildnml
+fatal: ambiguous argument 'cime_config/buildnml': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[talus cime_config]$ git diff buildnml
+diff --git a/cime_config/buildnml b/cime_config/buildnml
+index efd022d9..feb2f67f 100755
+--- a/cime_config/buildnml
++++ b/cime_config/buildnml
+@@ -54,25 +54,26 @@ def buildnml(case, caseroot, compname):
+     # call buildcpp to set both cppdefs and config_cache.xml file for generating namelist
+     #--------------------------------------------------------------------
+     call_buildcpp = False
+-    if not os.path.exists(os.path.join(caseroot,"LockedFiles","env_build.xml")):
++    camconf = os.path.join(caseroot, "Buildconf", "camconf")
++    filename = os.path.join(camconf, "config_cache.xml")
++    if not os.path.isfile(filename):
+         call_buildcpp = True
+     else:
+         file1 = os.path.join(caseroot,"env_build.xml")
+         file2 = os.path.join(caseroot,"LockedFiles","env_build.xml")
+-        if not filecmp.cmp(file1, file2):
++        if os.path.isfile(file2) and not filecmp.cmp(file1, file2):
+             call_buildcpp = True
+     if call_buildcpp:
+         cmd = os.path.join(os.path.join(srcroot,"cime_config","buildcpp"))
+         logger.info("     ...calling cam buildcpp to set build time options")
+         try:
+             mod = imp.load_source("buildcpp", cmd)
++            logger.info("cmd = {}".format(cmd))
+             mod.buildcpp(case)
+         except:
+             raise
+-
++    logger.info("buildnml end cpp")
+     # Verify that we have a config_cache file (generated by the call to buildcpp)
+-    camconf = os.path.join(caseroot, "Buildconf", "camconf")
+[talus cime_config]$ git diff buildnml
+diff --git a/cime_config/buildnml b/cime_config/buildnml
+index efd022d9..feb2f67f 100755
+--- a/cime_config/buildnml
++++ b/cime_config/buildnml
+@@ -54,25 +54,26 @@ def buildnml(case, caseroot, compname):
+     # call buildcpp to set both cppdefs and config_cache.xml file for generating namelist
+     #--------------------------------------------------------------------
+     call_buildcpp = False
+-    if not os.path.exists(os.path.join(caseroot,"LockedFiles","env_build.xml")):
++    camconf = os.path.join(caseroot, "Buildconf", "camconf")
++    filename = os.path.join(camconf, "config_cache.xml")
++    if not os.path.isfile(filename):
+         call_buildcpp = True
+     else:
+         file1 = os.path.join(caseroot,"env_build.xml")
+         file2 = os.path.join(caseroot,"LockedFiles","env_build.xml")
+-        if not filecmp.cmp(file1, file2):
++        if os.path.isfile(file2) and not filecmp.cmp(file1, file2):
+             call_buildcpp = True
+     if call_buildcpp:
+         cmd = os.path.join(os.path.join(srcroot,"cime_config","buildcpp"))
+         logger.info("     ...calling cam buildcpp to set build time options")
+         try:
+             mod = imp.load_source("buildcpp", cmd)
++            logger.info("cmd = {}".format(cmd))
+             mod.buildcpp(case)
+         except:
+             raise
+-
++    logger.info("buildnml end cpp")
+     # Verify that we have a config_cache file (generated by the call to buildcpp)
+-    camconf = os.path.join(caseroot, "Buildconf", "camconf")
+-    filename = os.path.join(camconf, "config_cache.xml")
+     expect(os.path.isfile(filename),
+            " Missing config_cache.xml - cannot run build-namelist")
+ 
+[talus cime_config]$ cd ..
+[talus cam]$ cd ..
+[talus components]$ ls
+cam    cdeps  cice   cice6  cism   clm    cmeps  cpl7   mom    mosart pop    rtm    ww3    ww3dev
+[talus components]$ cd clm
+[talus clm]$ git status
+HEAD detached at ctsm5.1.dev053
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   tools/mkmapdata/mkmapdata.sh
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	tools/mksurfdata_map/clm.input_data_list
+	tools/mksurfdata_map/clm.input_data_list.previous
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[talus clm]$ git diff tools/mkmapdata/mkmapdata.sh 
+diff --git a/tools/mkmapdata/mkmapdata.sh b/tools/mkmapdata/mkmapdata.sh
+index 54e33b717..4652497d0 100755
+--- a/tools/mkmapdata/mkmapdata.sh
++++ b/tools/mkmapdata/mkmapdata.sh
+@@ -42,7 +42,7 @@ default_res="10x15"
+ case $hostname in
+ 
+   ##cheyenne
+-  cheyenne* | r* )
++  derecho* | r* )
+   if [ -z "$CSMDATA" ]; then
+      CSMDATA=/glade/p/cesm/cseg/inputdata
+   fi
+[talus clm]$ ls
+bld                  doc                  lilac                README               src
+cime_config          Externals_CLM.cfg    manage_externals     README_EXTERNALS.rst test
+CODE_OF_CONDUCT.md   Externals.cfg        parse_cime.cs.status README.md            tools
+CONTRIBUTING.md      LICENSE              python               run_sys_tests
+[talus clm]$ cd ..
+[talus components]$ ls
+cam    cdeps  cice   cice6  cism   clm    cmeps  cpl7   mom    mosart pop    rtm    ww3    ww3dev
+[talus components]$ cd mom
+[talus mom]$ git status
+HEAD detached at mi_20210709
+nothing to commit, working tree clean
+[talus mom]$ ls
+ChangeLog         cime_config       Externals_MOM.cfg Externals.cfg     MOM6              param_templates   README.md         tests
+[talus mom]$ cd ..
+[talus components]$ ls
+cam    cdeps  cice   cice6  cism   clm    cmeps  cpl7   mom    mosart pop    rtm    ww3    ww3dev
+[talus components]$ cd cmeps/
+[talus cmeps]$ git diff
+[talus cmeps]$ cd ../cpl7/
+[talus cpl7]$ git status
+HEAD detached at cpl7.0.5
+nothing to commit, working tree clean
+[talus cpl7]$ cd ../
+[talus components]$ cd ..
+[talus CESM2.3.beta06]$ ls
+ChangeLog          cime               CODE_OF_CONDUCT.md describe_version   Externals.cfg      LICENSE.txt        README.rst
+ChangeLog_template cime_config        components         doc                libraries          manage_externals   share
+[talus CESM2.3.beta06]$ cd cime
+[talus cime]$ git status
+HEAD detached at cime6.0.9
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   config/cesm/config_grids.xml
+	modified:   config/cesm/config_grids_mct.xml
+	modified:   config/cesm/config_grids_nuopc.xml
+	modified:   config/cesm/machines/config_batch.xml
+	modified:   config/cesm/machines/config_compilers.xml
+	modified:   config/cesm/machines/config_machines.xml
+	modified:   scripts/lib/CIME/case/case.py
+	modified:   scripts/lib/CIME/get_timing.py
+	modified:   tools/load_balancing_tool/layouts.py
+	modified:   tools/load_balancing_tool/load_balancing_solve.py
+	modified:   tools/load_balancing_tool/load_balancing_submit.py
+	modified:   tools/load_balancing_tool/optimize_model.py
+	modified:   tools/load_balancing_tool/tests/atm_lnd.py
+	modified:   tools/load_balancing_tool/tests/example.json
+	modified:   tools/load_balancing_tool/tests/load_balancing_test.py
+	modified:   tools/load_balancing_tool/tests/timing/timing_1
+	modified:   tools/load_balancing_tool/tests/timing/timing_2
+	modified:   tools/load_balancing_tool/tests/timing/timing_3
+	modified:   tools/mapping/check_maps/check_map.sh
+	modified:   tools/mapping/check_maps/src/Makefile
+	modified:   tools/mapping/gen_domain_files/INSTALL
+	modified:   tools/mapping/gen_domain_files/README
+	modified:   tools/mapping/gen_domain_files/src/Makefile
+	modified:   tools/mapping/gen_domain_files/src/gen_domain.F90
+	modified:   tools/mapping/gen_domain_files/test_gen_domain.sh
+	modified:   tools/mapping/gen_mapping_files/README
+	modified:   tools/mapping/gen_mapping_files/gen_ESMF_mapping_file/README
+	modified:   tools/mapping/gen_mapping_files/gen_ESMF_mapping_file/create_ESMF_map.sh
+	modified:   tools/mapping/gen_mapping_files/runoff_to_ocn/INSTALL
+	modified:   tools/mapping/gen_mapping_files/runoff_to_ocn/README
+	modified:   tools/mapping/gen_mapping_files/runoff_to_ocn/tools/makdep.c
+	modified:   tools/mapping/map_field/INSTALL
+	modified:   tools/mapping/map_field/README
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	config/cesm/machines/config_machines_v1.xml
+	scripts/.BMOM_f09_sx0.66av1_aqua_030-040_branch_DRAG.csh.swo
+	scripts/.BMOM_f09_sx0.66av1_aqua_030-040_branch_DRAG.csh.swp
+	scripts/.BMOM_f09_sx0.66av1_aqua_production.001.csh.swn
+	scripts/.BMOM_f09_sx0.66av1_aqua_production.001.csh.swo
+	scripts/.BMOM_f09_sx09av1_aqua_001-010_003.csh.swo
+	scripts/.SOM_f02_sx0.66av1_aqua_production_yr1110.csh.swp
+	scripts/.ipynb_checkpoints/
+	scripts/0320ctrl.sh
+	scripts/BMOM_f02_QSC4_derecho_test.csh
+	scripts/BMOM_f02_g16_B1850_test.csh
+	scripts/BMOM_f09_QPC4_derecho_test.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_001-010_001.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_001-010_DRAG.002.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_001-010_DRAG.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_001-030_001.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_001_DRAG_ICtest.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.001.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.001_ICtest.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.002.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.003.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.004.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.005.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.006.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.bdrag.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.bdrag_Cd.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_derecho.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_derecho_benchmark.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_derecho_loadbalancing.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_yr300.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_yr300_derecho.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_yr300_meltpotential.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_yr300_streamfunction_test.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_yr500_branch_derecho.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_1pctCO2.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_6hr.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_GM_tracer.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_budget_monthly.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_melt_monthly.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_production_1pctCO2_ens0_0e-14.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_production_1pctCO2_ens1_1e-14.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_production_1pctCO2_ens2_2e-14.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1070_branch_1pctCO2.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1100_branch_budget_monthly.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_production.001.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_production.002.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_production.yr100.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_production.yr100_meltpotential.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_production.yr500_branch_derecho.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_1pctCO2.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_6hr.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_GM_tracer.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_budget_monthly.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_melt_monthly.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_production_1pctCO2_ens1_1e-14.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_production_1pctCO2_ens2_2e-14.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_production_1pctCO2_ens3_3e-14.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1070_branch_1pctCO2.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1100_branch_melt_monthly.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1100_branch_melt_monthly_test.csh
+	scripts/BMOM_f09_sx09av1_aqua_001-010.csh
+	scripts/BMOM_f09_sx09av1_aqua_001-010_002.csh
+	scripts/BMOM_f09_sx09av1_aqua_001-010_003.csh
+	scripts/BMOM_f09_sx09av1_aqua_001-010_004.csh
+	scripts/BMOM_f09_sx09av1_test.csh
+	scripts/BMOM_f09_sx09av2_aqua_001-010_001.csh
+	scripts/BMOM_f09_sx09rv1_brdg_001-010.csh
+	scripts/BMOM_f09_sx09rv1_test.csh
+	scripts/BMOM_f09_sx1.0av1_aqua_001-010_001.csh
+	scripts/BMOM_f09_t061_test.csh
+	scripts/BMOM_f09_t061_testcase.csh
+	scripts/CAM_f02_FHIST.csh
+	scripts/CMOM_T62_sr20_test.csh
+	scripts/CMOM_T62_sx09rv1_hybird.csh
+	scripts/CMOM_T62_sx09rv1_test.csh
+	scripts/CMOM_f09_sx09rv1_climatm_forcing_PDNCPL.csh
+	scripts/CMOM_f09_sx09rv1_climatm_forcing_branch_yr420.csh
+	scripts/SOM_f02_f09_sx0.66av1_aqua_production_yr1100_CLM_dice.csh
+	scripts/SOM_f02_sx0.66av1_aqua_production_yr1100_CLM_dice.csh
+	scripts/SOM_f02_sx0.66rv1_brdg_production_yr1100_CLM_dice.csh
+	scripts/SOM_f09_ETEST.csh
+	scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_CLM_CICE.csh
+	scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_CLM_dice.csh
+	scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_CLM_dice_IC.csh
+	scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_CLM_dice_TS.csh
+	scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_sice.csh
+	scripts/SOM_f09_sx0.66rv1_brdg_production_yr1100_CLM_dice.csh
+	scripts/SOM_f09_sx0.66rv1_brdg_production_yr1100_CLM_dice_IC.csh
+	scripts/SOM_f09_sx0.66rv1_brdg_production_yr1100_CLM_dice_TS.csh
+	scripts/aqua_case/
+	scripts/c.e22.CMOM.T62_t061.001/
+	scripts/c.e23.CMOM.T62_g16/
+	scripts/lib/CIME/case/case_original.py
+	scripts/lib/CIME/case/q
+	scripts/lib/CIME/get_timing_beta06.py
+	scripts/mdl_BMOM_aqua_production_branch_yr420.csh
+	tools/load_balancing_tool/IceLndAtmOcn_model.lp
+	tools/load_balancing_tool/optimize_model_original.py
+	tools/load_balancing_tool/pe.xml
+	tools/load_balancing_tool/run.sh
+	tools/load_balancing_tool/run_exist.sh
+	tools/load_balancing_tool_original/
+	tools/mapping_old/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[talus cime]$ cd ..
+[talus CESM2.3.beta06]$ git diff
+diff --git a/cime_config/config_pes.xml b/cime_config/config_pes.xml
+index c07a45f..7a5deed 100644
+--- a/cime_config/config_pes.xml
++++ b/cime_config/config_pes.xml
+@@ -201,6 +201,43 @@
+       </pes>
+     </mach>
+   </grid>
++  <grid name="a%1.9x2.5.+l%1.9x2.5.+oi%gx1">
++    <mach name="derecho">
++      <pes pesize="any" compset="any">
++        <comment>none</comment>
++        <ntasks>
++          <ntasks_atm>-4</ntasks_atm>
++          <ntasks_lnd>-2</ntasks_lnd>
++          <ntasks_rof>-2</ntasks_rof>
++          <ntasks_ice>-1</ntasks_ice>
++          <ntasks_ocn>-2</ntasks_ocn>
++          <ntasks_glc>-1</ntasks_glc>
++          <ntasks_wav>-1</ntasks_wav>
++          <ntasks_cpl>-4</ntasks_cpl>
++        </ntasks>
++        <nthrds>
++          <nthrds_atm>1</nthrds_atm>
++          <nthrds_lnd>1</nthrds_lnd>
++          <nthrds_rof>1</nthrds_rof>
++          <nthrds_ice>1</nthrds_ice>
++          <nthrds_ocn>1</nthrds_ocn>
++          <nthrds_glc>1</nthrds_glc>
++          <nthrds_wav>1</nthrds_wav>
++          <nthrds_cpl>1</nthrds_cpl>
++        </nthrds>
++        <rootpe>
++          <rootpe_atm>0</rootpe_atm>
++          <rootpe_lnd>0</rootpe_lnd>
++          <rootpe_rof>0</rootpe_rof>
++          <rootpe_ice>-2</rootpe_ice>
++          <rootpe_ocn>-4</rootpe_ocn>
++          <rootpe_glc>0</rootpe_glc>
++          <rootpe_wav>0</rootpe_wav>
++          <rootpe_cpl>0</rootpe_cpl>
++        </rootpe>
++      </pes>
++    </mach>
++  </grid>
+   <grid name="a%1.9x2.5.+l%1.9x2.5.+oi%gx1">
+     <mach name="cori-haswell">
+       <pes pesize="any" compset="any">
+[talus CESM2.3.beta06]$ ls
+ChangeLog          cime               CODE_OF_CONDUCT.md describe_version   Externals.cfg      LICENSE.txt        README.rst
+ChangeLog_template cime_config        components         doc                libraries          manage_externals   share
+[talus CESM2.3.beta06]$ git status
+Not currently on any branch.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   cime_config/config_pes.xml
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[talus CESM2.3.beta06]$ cd cime_config/
+[talus cime_config]$ ls
+config_compsets.xml    config_pes.xml         README.md              testlist_allactive.xml testmods_dirs          usermods_dirs
+[talus cime_config]$ cd ../cime
+[talus cime]$ git status
+HEAD detached at cime6.0.9
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   config/cesm/config_grids.xml
+	modified:   config/cesm/config_grids_mct.xml
+	modified:   config/cesm/config_grids_nuopc.xml
+	modified:   config/cesm/machines/config_batch.xml
+	modified:   config/cesm/machines/config_compilers.xml
+	modified:   config/cesm/machines/config_machines.xml
+	modified:   scripts/lib/CIME/case/case.py
+	modified:   scripts/lib/CIME/get_timing.py
+	modified:   tools/load_balancing_tool/layouts.py
+	modified:   tools/load_balancing_tool/load_balancing_solve.py
+	modified:   tools/load_balancing_tool/load_balancing_submit.py
+	modified:   tools/load_balancing_tool/optimize_model.py
+	modified:   tools/load_balancing_tool/tests/atm_lnd.py
+	modified:   tools/load_balancing_tool/tests/example.json
+	modified:   tools/load_balancing_tool/tests/load_balancing_test.py
+	modified:   tools/load_balancing_tool/tests/timing/timing_1
+	modified:   tools/load_balancing_tool/tests/timing/timing_2
+	modified:   tools/load_balancing_tool/tests/timing/timing_3
+	modified:   tools/mapping/check_maps/check_map.sh
+	modified:   tools/mapping/check_maps/src/Makefile
+	modified:   tools/mapping/gen_domain_files/INSTALL
+	modified:   tools/mapping/gen_domain_files/README
+	modified:   tools/mapping/gen_domain_files/src/Makefile
+	modified:   tools/mapping/gen_domain_files/src/gen_domain.F90
+	modified:   tools/mapping/gen_domain_files/test_gen_domain.sh
+	modified:   tools/mapping/gen_mapping_files/README
+	modified:   tools/mapping/gen_mapping_files/gen_ESMF_mapping_file/README
+	modified:   tools/mapping/gen_mapping_files/gen_ESMF_mapping_file/create_ESMF_map.sh
+	modified:   tools/mapping/gen_mapping_files/runoff_to_ocn/INSTALL
+	modified:   tools/mapping/gen_mapping_files/runoff_to_ocn/README
+	modified:   tools/mapping/gen_mapping_files/runoff_to_ocn/tools/makdep.c
+	modified:   tools/mapping/map_field/INSTALL
+	modified:   tools/mapping/map_field/README
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	config/cesm/machines/config_machines_v1.xml
+	scripts/.BMOM_f09_sx0.66av1_aqua_030-040_branch_DRAG.csh.swo
+	scripts/.BMOM_f09_sx0.66av1_aqua_030-040_branch_DRAG.csh.swp
+	scripts/.BMOM_f09_sx0.66av1_aqua_production.001.csh.swn
+	scripts/.BMOM_f09_sx0.66av1_aqua_production.001.csh.swo
+	scripts/.BMOM_f09_sx09av1_aqua_001-010_003.csh.swo
+	scripts/.SOM_f02_sx0.66av1_aqua_production_yr1110.csh.swp
+	scripts/.ipynb_checkpoints/
+	scripts/0320ctrl.sh
+	scripts/BMOM_f02_QSC4_derecho_test.csh
+	scripts/BMOM_f02_g16_B1850_test.csh
+	scripts/BMOM_f09_QPC4_derecho_test.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_001-010_001.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_001-010_DRAG.002.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_001-010_DRAG.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_001-030_001.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_001_DRAG_ICtest.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.001.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.001_ICtest.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.002.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.003.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.004.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.005.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.006.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.bdrag.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production.bdrag_Cd.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_derecho.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_derecho_benchmark.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_derecho_loadbalancing.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_yr300.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_yr300_derecho.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_yr300_meltpotential.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_yr300_streamfunction_test.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_production_yr500_branch_derecho.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_1pctCO2.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_6hr.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_GM_tracer.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_budget_monthly.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_melt_monthly.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_production_1pctCO2_ens0_0e-14.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_production_1pctCO2_ens1_1e-14.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1000_production_1pctCO2_ens2_2e-14.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1070_branch_1pctCO2.csh
+	scripts/BMOM_f09_sx0.66av1_aqua_yr1100_branch_budget_monthly.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_production.001.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_production.002.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_production.yr100.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_production.yr100_meltpotential.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_production.yr500_branch_derecho.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_1pctCO2.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_6hr.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_GM_tracer.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_budget_monthly.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_melt_monthly.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_production_1pctCO2_ens1_1e-14.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_production_1pctCO2_ens2_2e-14.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_production_1pctCO2_ens3_3e-14.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1070_branch_1pctCO2.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1100_branch_melt_monthly.csh
+	scripts/BMOM_f09_sx0.66rv1_brdg_yr1100_branch_melt_monthly_test.csh
+	scripts/BMOM_f09_sx09av1_aqua_001-010.csh
+	scripts/BMOM_f09_sx09av1_aqua_001-010_002.csh
+	scripts/BMOM_f09_sx09av1_aqua_001-010_003.csh
+	scripts/BMOM_f09_sx09av1_aqua_001-010_004.csh
+	scripts/BMOM_f09_sx09av1_test.csh
+	scripts/BMOM_f09_sx09av2_aqua_001-010_001.csh
+	scripts/BMOM_f09_sx09rv1_brdg_001-010.csh
+	scripts/BMOM_f09_sx09rv1_test.csh
+	scripts/BMOM_f09_sx1.0av1_aqua_001-010_001.csh
+	scripts/BMOM_f09_t061_test.csh
+	scripts/BMOM_f09_t061_testcase.csh
+	scripts/CAM_f02_FHIST.csh
+	scripts/CMOM_T62_sr20_test.csh
+	scripts/CMOM_T62_sx09rv1_hybird.csh
+	scripts/CMOM_T62_sx09rv1_test.csh
+	scripts/CMOM_f09_sx09rv1_climatm_forcing_PDNCPL.csh
+	scripts/CMOM_f09_sx09rv1_climatm_forcing_branch_yr420.csh
+	scripts/SOM_f02_f09_sx0.66av1_aqua_production_yr1100_CLM_dice.csh
+	scripts/SOM_f02_sx0.66av1_aqua_production_yr1100_CLM_dice.csh
+	scripts/SOM_f02_sx0.66rv1_brdg_production_yr1100_CLM_dice.csh
+	scripts/SOM_f09_ETEST.csh
+	scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_CLM_CICE.csh
+	scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_CLM_dice.csh
+	scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_CLM_dice_IC.csh
+	scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_CLM_dice_TS.csh
+	scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_sice.csh
+	scripts/SOM_f09_sx0.66rv1_brdg_production_yr1100_CLM_dice.csh
+	scripts/SOM_f09_sx0.66rv1_brdg_production_yr1100_CLM_dice_IC.csh
+	scripts/SOM_f09_sx0.66rv1_brdg_production_yr1100_CLM_dice_TS.csh
+	scripts/aqua_case/
+	scripts/c.e22.CMOM.T62_t061.001/
+	scripts/c.e23.CMOM.T62_g16/
+	scripts/lib/CIME/case/case_original.py
+	scripts/lib/CIME/case/q
+	scripts/lib/CIME/get_timing_beta06.py
+	scripts/mdl_BMOM_aqua_production_branch_yr420.csh
+	tools/load_balancing_tool/IceLndAtmOcn_model.lp
+	tools/load_balancing_tool/optimize_model_original.py
+	tools/load_balancing_tool/pe.xml
+	tools/load_balancing_tool/run.sh
+	tools/load_balancing_tool/run_exist.sh
+	tools/load_balancing_tool_original/
+	tools/mapping_old/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[talus cime]$ cd config/cesm/
+[talus cesm]$ ls
+config_archive.xml      config_grids_common.xml config_grids_nuopc.xml  config_inputdata.xml
+config_files.xml        config_grids_mct.xml    config_grids.xml        machines
+[talus cesm]$ git status
+HEAD detached at cime6.0.9
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   config_grids.xml
+	modified:   config_grids_mct.xml
+	modified:   config_grids_nuopc.xml
+	modified:   machines/config_batch.xml
+	modified:   machines/config_compilers.xml
+	modified:   machines/config_machines.xml
+	modified:   ../../scripts/lib/CIME/case/case.py
+	modified:   ../../scripts/lib/CIME/get_timing.py
+	modified:   ../../tools/load_balancing_tool/layouts.py
+	modified:   ../../tools/load_balancing_tool/load_balancing_solve.py
+	modified:   ../../tools/load_balancing_tool/load_balancing_submit.py
+	modified:   ../../tools/load_balancing_tool/optimize_model.py
+	modified:   ../../tools/load_balancing_tool/tests/atm_lnd.py
+	modified:   ../../tools/load_balancing_tool/tests/example.json
+	modified:   ../../tools/load_balancing_tool/tests/load_balancing_test.py
+	modified:   ../../tools/load_balancing_tool/tests/timing/timing_1
+	modified:   ../../tools/load_balancing_tool/tests/timing/timing_2
+	modified:   ../../tools/load_balancing_tool/tests/timing/timing_3
+	modified:   ../../tools/mapping/check_maps/check_map.sh
+	modified:   ../../tools/mapping/check_maps/src/Makefile
+	modified:   ../../tools/mapping/gen_domain_files/INSTALL
+	modified:   ../../tools/mapping/gen_domain_files/README
+	modified:   ../../tools/mapping/gen_domain_files/src/Makefile
+	modified:   ../../tools/mapping/gen_domain_files/src/gen_domain.F90
+	modified:   ../../tools/mapping/gen_domain_files/test_gen_domain.sh
+	modified:   ../../tools/mapping/gen_mapping_files/README
+	modified:   ../../tools/mapping/gen_mapping_files/gen_ESMF_mapping_file/README
+	modified:   ../../tools/mapping/gen_mapping_files/gen_ESMF_mapping_file/create_ESMF_map.sh
+	modified:   ../../tools/mapping/gen_mapping_files/runoff_to_ocn/INSTALL
+	modified:   ../../tools/mapping/gen_mapping_files/runoff_to_ocn/README
+	modified:   ../../tools/mapping/gen_mapping_files/runoff_to_ocn/tools/makdep.c
+	modified:   ../../tools/mapping/map_field/INSTALL
+	modified:   ../../tools/mapping/map_field/README
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	machines/config_machines_v1.xml
+	../../scripts/.BMOM_f09_sx0.66av1_aqua_030-040_branch_DRAG.csh.swo
+	../../scripts/.BMOM_f09_sx0.66av1_aqua_030-040_branch_DRAG.csh.swp
+	../../scripts/.BMOM_f09_sx0.66av1_aqua_production.001.csh.swn
+	../../scripts/.BMOM_f09_sx0.66av1_aqua_production.001.csh.swo
+	../../scripts/.BMOM_f09_sx09av1_aqua_001-010_003.csh.swo
+	../../scripts/.SOM_f02_sx0.66av1_aqua_production_yr1110.csh.swp
+	../../scripts/.ipynb_checkpoints/
+	../../scripts/0320ctrl.sh
+	../../scripts/BMOM_f02_QSC4_derecho_test.csh
+	../../scripts/BMOM_f02_g16_B1850_test.csh
+	../../scripts/BMOM_f09_QPC4_derecho_test.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_001-010_001.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_001-010_DRAG.002.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_001-010_DRAG.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_001-030_001.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_001_DRAG_ICtest.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production.001.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production.001_ICtest.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production.002.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production.003.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production.004.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production.005.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production.006.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production.bdrag.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production.bdrag_Cd.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production_derecho.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production_derecho_benchmark.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production_derecho_loadbalancing.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production_yr300.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production_yr300_derecho.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production_yr300_meltpotential.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production_yr300_streamfunction_test.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_production_yr500_branch_derecho.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_1pctCO2.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_6hr.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_GM_tracer.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_budget_monthly.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_yr1000_branch_melt_monthly.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_yr1000_production_1pctCO2_ens0_0e-14.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_yr1000_production_1pctCO2_ens1_1e-14.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_yr1000_production_1pctCO2_ens2_2e-14.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_yr1070_branch_1pctCO2.csh
+	../../scripts/BMOM_f09_sx0.66av1_aqua_yr1100_branch_budget_monthly.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_production.001.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_production.002.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_production.yr100.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_production.yr100_meltpotential.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_production.yr500_branch_derecho.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_1pctCO2.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_6hr.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_GM_tracer.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_budget_monthly.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_branch_melt_monthly.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_production_1pctCO2_ens1_1e-14.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_production_1pctCO2_ens2_2e-14.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_yr1000_production_1pctCO2_ens3_3e-14.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_yr1070_branch_1pctCO2.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_yr1100_branch_melt_monthly.csh
+	../../scripts/BMOM_f09_sx0.66rv1_brdg_yr1100_branch_melt_monthly_test.csh
+	../../scripts/BMOM_f09_sx09av1_aqua_001-010.csh
+	../../scripts/BMOM_f09_sx09av1_aqua_001-010_002.csh
+	../../scripts/BMOM_f09_sx09av1_aqua_001-010_003.csh
+	../../scripts/BMOM_f09_sx09av1_aqua_001-010_004.csh
+	../../scripts/BMOM_f09_sx09av1_test.csh
+	../../scripts/BMOM_f09_sx09av2_aqua_001-010_001.csh
+	../../scripts/BMOM_f09_sx09rv1_brdg_001-010.csh
+	../../scripts/BMOM_f09_sx09rv1_test.csh
+	../../scripts/BMOM_f09_sx1.0av1_aqua_001-010_001.csh
+	../../scripts/BMOM_f09_t061_test.csh
+	../../scripts/BMOM_f09_t061_testcase.csh
+	../../scripts/CAM_f02_FHIST.csh
+	../../scripts/CMOM_T62_sr20_test.csh
+	../../scripts/CMOM_T62_sx09rv1_hybird.csh
+	../../scripts/CMOM_T62_sx09rv1_test.csh
+	../../scripts/CMOM_f09_sx09rv1_climatm_forcing_PDNCPL.csh
+	../../scripts/CMOM_f09_sx09rv1_climatm_forcing_branch_yr420.csh
+	../../scripts/SOM_f02_f09_sx0.66av1_aqua_production_yr1100_CLM_dice.csh
+	../../scripts/SOM_f02_sx0.66av1_aqua_production_yr1100_CLM_dice.csh
+	../../scripts/SOM_f02_sx0.66rv1_brdg_production_yr1100_CLM_dice.csh
+	../../scripts/SOM_f09_ETEST.csh
+	../../scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_CLM_CICE.csh
+	../../scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_CLM_dice.csh
+	../../scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_CLM_dice_IC.csh
+	../../scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_CLM_dice_TS.csh
+	../../scripts/SOM_f09_sx0.66av1_aqua_production_yr1100_sice.csh
+	../../scripts/SOM_f09_sx0.66rv1_brdg_production_yr1100_CLM_dice.csh
+	../../scripts/SOM_f09_sx0.66rv1_brdg_production_yr1100_CLM_dice_IC.csh
+	../../scripts/SOM_f09_sx0.66rv1_brdg_production_yr1100_CLM_dice_TS.csh
+	../../scripts/aqua_case/
+	../../scripts/c.e22.CMOM.T62_t061.001/
+	../../scripts/c.e23.CMOM.T62_g16/
+	../../scripts/lib/CIME/case/case_original.py
+	../../scripts/lib/CIME/case/q
+	../../scripts/lib/CIME/get_timing_beta06.py
+	../../scripts/mdl_BMOM_aqua_production_branch_yr420.csh
+	../../tools/load_balancing_tool/IceLndAtmOcn_model.lp
+	../../tools/load_balancing_tool/optimize_model_original.py
+	../../tools/load_balancing_tool/pe.xml
+	../../tools/load_balancing_tool/run.sh
+	../../tools/load_balancing_tool/run_exist.sh
+	../../tools/load_balancing_tool_original/
+	../../tools/mapping_old/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[talus cesm]$ git status *
+HEAD detached at cime6.0.9
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   config_grids.xml
+	modified:   config_grids_mct.xml
+	modified:   config_grids_nuopc.xml
+	modified:   machines/config_batch.xml
+	modified:   machines/config_compilers.xml
+	modified:   machines/config_machines.xml
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	machines/config_machines_v1.xml
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[talus cesm]$ git diff config_grids.xml
+diff --git a/config/cesm/config_grids.xml b/config/cesm/config_grids.xml
+index 3082b5d9a..6471bbd5a 100644
+--- a/config/cesm/config_grids.xml
++++ b/config/cesm/config_grids.xml
+@@ -412,6 +412,18 @@
+       <mask>oQU120</mask>
+     </model_grid>
+ 
++    <model_grid alias="T62_sx09rv1" not_compset="_CAM">
++      <grid name="atm">T62</grid>
++      <grid name="lnd">T62</grid>
++      <grid name="ocnice">sx09rv1</grid>
++    </model_grid>
++  
++    <model_grid alias="T62_sr20" not_compset="_CAM">
++      <grid name="atm">T62</grid>
++      <grid name="lnd">T62</grid>
++      <grid name="ocnice">sx2.0rv1</grid>
++    </model_grid>
++
+     <!-- finite volume grids -->
+ 
+     <model_grid alias="f02_g16">
+@@ -505,6 +517,67 @@
+       <grid name="glc">gris4</grid>
+       <mask>gx1v7</mask>
+     </model_grid>
++   
++    <model_grid alias="f09_sx09rv1">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx09rv1</grid>
++    </model_grid>
++
++    <model_grid alias="f09_sx09av1">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx09av1</grid>
++    </model_grid>
++    
++    <model_grid alias="f09_sx09av2">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx09av2</grid>
++    </model_grid>
++
++    <model_grid alias="f09_sx1.0av1">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx1.0av1</grid>
++    </model_grid>
++    
++    <model_grid alias="f09_sx066av1">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx066av1</grid>
++    </model_grid>
++
++    <model_grid alias="f09_sx066rv1">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx066rv1</grid>
++    </model_grid>
++
++    <model_grid alias="f02_sx066av1">
++      <grid name="atm">0.23x0.31</grid>
++      <grid name="lnd">0.23x0.31</grid>
++      <grid name="ocnice">sx066av1</grid>
++    </model_grid>
++
++    <model_grid alias="f02_sx066rv1">
++      <grid name="atm">0.23x0.31</grid>
++      <grid name="lnd">0.23x0.31</grid>
++      <grid name="ocnice">sx066rv1</grid>
++    </model_grid>
++    
++    <model_grid alias="f02_f09_sx066av1">
++      <grid name="atm">0.23x0.31</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx066av1</grid>
++    </model_grid>
++
++    <model_grid alias="f02_f09_sx066rv1">
++      <grid name="atm">0.23x0.31</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx066rv1</grid>
++    </model_grid>
++
+     <!-- Backwards compatibility with old use of _gl for Greenland grid -->
+     <model_grid alias="f09_g17_gl4" compset="_CISM">
+       <grid name="atm">0.9x1.25</grid>
+@@ -1851,6 +1924,55 @@
+       <desc>tn0.25v3 is NEMO ORCA1 tripole grid at 1/4 deg (reduced eORCA):</desc>
+       <support>NEMO ORCA1 tripole ocean grid</support>
+     </domain>
++    
++    <domain name="sx09rv1">
++      <nx>288</nx> <ny>192</ny>
++      <mesh>/glade/work/youweima/f09_sx09rv1/ESMF_mesh_sx09rv1.nc</mesh>
++      <desc>A simple 0.9x1.25 2-gridcell ridge mesh version 1 generated with mom6_bathy:</desc>
++      <support>Experimental for MOM6 experiments</support>
++    </domain>
++    
++    <domain name="sx09av1">
++      <nx>288</nx> <ny>192</ny>
++      <mesh>/glade/work/youweima/f09_sx09av1/ESMF_mesh_sx09av1.nc</mesh>
++      <desc>A simple 0.9x1.25 aqua mesh version 1 generated with mom6_bathy:</desc>
++      <support>Experimental for MOM6 experiments</support>
++    </domain>
++    
++    <domain name="sx09av2">
++      <nx>360</nx> <ny>161</ny>
++      <mesh>/glade/work/youweima/f09_sx09av2/ESMF_mesh_sx09av2.nc</mesh>
++      <desc>A simple 1x1 aqua mesh version 2(isotropic grid) generated with mom6_bathy:</desc>
++      <support>Experimental for MOM6 experiments</support>
++    </domain>
++
++     <domain name="sx1.0av1">
++      <nx>360</nx> <ny>202</ny>
++      <mesh>/glade/work/youweima/f09_sx1.0av1/ESMF_mesh_sx1.0av1.nc</mesh>
++      <desc>A simple 1 degree aqua mesh version 1 (ocean_only/global) generated with mom6_bathy:</desc>
++      <support>Experimental for MOM6 experiments</support>
++    </domain>
++
++    <domain name="sx066av1">
++      <nx>540</nx> <ny>466</ny>
++      <mesh>/glade/work/youweima/f09_sx0.66av1/ESMF_mesh_sx0.66av1.nc</mesh>
++      <desc>A simple 0.66 degree aqua mesh version 1 (tx0.66v1) generated with mom6_bathy:</desc>
++      <support>Experimental for MOM6 experiments</support>
++    </domain>
++
++    <domain name="sx066rv1">
++      <nx>540</nx> <ny>466</ny>
++      <mesh>/glade/work/youweima/f09_sx0.66rv1/ESMF_mesh_sx0.66rv1.nc</mesh>
++      <desc>A simple 0.66 degree aqua mesh version 1 (tx0.66v1) generated with mom6_bathy:</desc>
++      <support>Experimental for MOM6 experiments</support>
++    </domain>
++
++    <domain name="sx2.0rv1">
++      <nx>180</nx> <ny>179</ny>
++      <mesh>/glade/work/youweima/T62_sx20rv1/ESMF_mesh.nc</mesh> 
++      <desc>sx2.0rv1 is dipole v1 2.0-deg MOM6 grid with a one-gridcell ridge:</desc>
++      <support>Experimental for MOM6 aquaplanet experiments</support>
++    </domain>
+ 
+     <!-- ======================================================== -->
+     <!-- ROF domains -->
+[talus cesm]$ ls
+config_archive.xml      config_grids_common.xml config_grids_nuopc.xml  config_inputdata.xml
+config_files.xml        config_grids_mct.xml    config_grids.xml        machines
+[talus cesm]$ less config_grids
+config_grids: No such file or directory
+[talus cesm]$ less config_grids.xml 
+[talus cesm]$ git diff config_grids.xml
+diff --git a/config/cesm/config_grids.xml b/config/cesm/config_grids.xml
+index 3082b5d9a..6471bbd5a 100644
+--- a/config/cesm/config_grids.xml
++++ b/config/cesm/config_grids.xml
+@@ -412,6 +412,18 @@
+       <mask>oQU120</mask>
+     </model_grid>
+ 
++    <model_grid alias="T62_sx09rv1" not_compset="_CAM">
++      <grid name="atm">T62</grid>
++      <grid name="lnd">T62</grid>
++      <grid name="ocnice">sx09rv1</grid>
++    </model_grid>
++  
++    <model_grid alias="T62_sr20" not_compset="_CAM">
++      <grid name="atm">T62</grid>
++      <grid name="lnd">T62</grid>
++      <grid name="ocnice">sx2.0rv1</grid>
++    </model_grid>
++
+     <!-- finite volume grids -->
+ 
+     <model_grid alias="f02_g16">
+@@ -505,6 +517,67 @@
+       <grid name="glc">gris4</grid>
+       <mask>gx1v7</mask>
+     </model_grid>
++   
++    <model_grid alias="f09_sx09rv1">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx09rv1</grid>
++    </model_grid>
++
++    <model_grid alias="f09_sx09av1">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx09av1</grid>
++    </model_grid>
++    
++    <model_grid alias="f09_sx09av2">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx09av2</grid>
++    </model_grid>
++
++    <model_grid alias="f09_sx1.0av1">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx1.0av1</grid>
++    </model_grid>
++    
++    <model_grid alias="f09_sx066av1">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx066av1</grid>
++    </model_grid>
++
++    <model_grid alias="f09_sx066rv1">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx066rv1</grid>
++    </model_grid>
++
++    <model_grid alias="f02_sx066av1">
++      <grid name="atm">0.23x0.31</grid>
++      <grid name="lnd">0.23x0.31</grid>
++      <grid name="ocnice">sx066av1</grid>
++    </model_grid>
++
++    <model_grid alias="f02_sx066rv1">
++      <grid name="atm">0.23x0.31</grid>
++    </model_grid>
++
+     <!-- finite volume grids -->
+ 
+     <model_grid alias="f02_g16">
+@@ -505,6 +517,67 @@
+       <grid name="glc">gris4</grid>
+       <mask>gx1v7</mask>
+     </model_grid>
++   
++    <model_grid alias="f09_sx09rv1">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx09rv1</grid>
++    </model_grid>
++
++    <model_grid alias="f09_sx09av1">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx09av1</grid>
++    </model_grid>
++    
++    <model_grid alias="f09_sx09av2">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx09av2</grid>
++    </model_grid>
++
++    <model_grid alias="f09_sx1.0av1">
++      <grid name="atm">0.9x1.25</grid>
++      <grid name="lnd">0.9x1.25</grid>
++      <grid name="ocnice">sx1.0av1</grid>
+[talus cesm]$ less config_grids.xml 
+
+      <grid name="lnd">0.9x1.25</grid>
+      <grid name="ocnice">sx066rv1</grid>
+    </model_grid>
+
+    <model_grid alias="f02_sx066av1">
+      <grid name="atm">0.23x0.31</grid>
+      <grid name="lnd">0.23x0.31</grid>
+      <grid name="ocnice">sx066av1</grid>
+    </model_grid>
+
+    <model_grid alias="f02_sx066rv1">
+      <grid name="atm">0.23x0.31</grid>
+      <grid name="lnd">0.23x0.31</grid>
+      <grid name="ocnice">sx066rv1</grid>
+    </model_grid>
+    
+    <model_grid alias="f02_f09_sx066av1">
+      <grid name="atm">0.23x0.31</grid>
+      <grid name="lnd">0.9x1.25</grid>
+      <grid name="ocnice">sx066av1</grid>
+    </model_grid>
+
+    <model_grid alias="f02_f09_sx066rv1">
+      <grid name="atm">0.23x0.31</grid>
+      <grid name="lnd">0.9x1.25</grid>
+      <grid name="ocnice">sx066rv1</grid>
+    </model_grid>
+
     <model_grid alias="f05_f05_mg17" not_compset="_POP" >
       <grid name="atm">0.47x0.63</grid>
       <grid name="lnd">0.47x0.63</grid>
@@ -1851,6 +3706,19 @@
       <desc>tn0.25v3 is NEMO ORCA1 tripole grid at 1/4 deg (reduced eORCA):</desc>
       <support>NEMO ORCA1 tripole ocean grid</support>
     </domain>
+    <domain name="sx066av1">
+      <nx>540</nx> <ny>466</ny>
+      <mesh>$DIN_LOC_ROOT/share/meshes/ESMF_mesh_sx0.66av1.nc</mesh>
+      <desc>A simple 0.66 degree aqua mesh version 1 (tx0.66v1) generated with mom6_bathy.py by Youwei Ma</desc>
+      <support>Experimental for MOM6 ICCM experiments</support>
+    </domain>
+    <domain name="sx066rv1">
+      <nx>540</nx> <ny>466</ny>
+      <mesh>$DIN_LOC_ROOT/share/meshes/ESMF_mesh_sx0.66rv1.nc</mesh>
+      <desc>A simple 0.66 degree aqua mesh version 1 (tx0.66v1) generated with mom6_bath.py by Youwei Ma</desc>
+     <support>Experimental for MOM6 ICCM experiments</support>
+    </domain>
+
 
     <!-- ======================================================== -->
     <!-- ROF domains -->
