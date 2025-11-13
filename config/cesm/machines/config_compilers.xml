@@ -190,7 +190,7 @@ using a fortran linker.
   <CFLAGS>
     <base> -std=gnu99 </base>
     <append compile_threaded="TRUE"> -fopenmp </append>
-    <append DEBUG="TRUE"> -g -Wall -Og -fbacktrace -ffpe-trap=invalid,zero,overflow -fcheck=bounds </append>
+    <append DEBUG="TRUE"> -g -Wall -Og </append>
     <append DEBUG="FALSE"> -O </append>
   </CFLAGS>
   <CPPDEFS>
