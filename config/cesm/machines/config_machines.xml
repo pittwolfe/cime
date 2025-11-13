@@ -157,6 +157,7 @@ This allows using a different mpirun command to launch unit tests
       <modules compiler="gnu">
         <command name="load"> load-epcc-module</command>
         <command name="load"> CESM2/2.3.beta06</command>
+        <command name="load"> craype-x86-milan</command>
       </modules>
       <modules mpilib="mpi-serial">
         <command name="load"> load-epcc-module</command>
@@ -171,7 +172,6 @@ This allows using a different mpirun command to launch unit tests
 
     <environment_variables>
       <env name="PERL5LIB">/work/n02/shared/perl/5.26.2</env>
-      <env name="OMP_NUM_THREADS">{{ thread_count }} </env>
       <env name="OMP_PLACES">cores </env>
       <env name="OMP_STACKSIZE">2G</env>
       <!--<env name="PATH">/work/n02/n02/csymonds/sw/conda/cesmenv2/bin:$ENV{PATH}</env>-->
