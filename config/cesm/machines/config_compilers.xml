@@ -720,9 +720,9 @@ using a fortran linker.
     <!--> Needed for FMS <-->
     <append> -DHAVE_GETTID </append>
   </CFLAGS>
-  <ESMF_LIBDIR>/work/n01/shared/aqua/ESMF/esmf_8.9.0/lib/libO/Linux.gfortran.64.mpich.default</ESMF_LIBDIR>
+  <ESMF_LIBDIR>$ENV{ESMF_LIBDIR}</ESMF_LIBDIR>
   <SLIBS>
-    <append>-L/work/n01/shared/aqua/ESMF/esmf_8.9.0/lib/libO/Linux.gfortran.64.mpich.default -ldl </append>
+    <append>-L$ESMF_LIBDIR -ldl </append>
   </SLIBS>
 </compiler>
 
