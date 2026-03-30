@@ -29,3 +29,7 @@ libraries
 share
 test_coverage/**
 *.bak
+
+# ipython notebook checkpoints
+.ipynb_checkpoints
+
